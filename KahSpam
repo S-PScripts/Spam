@@ -1,0 +1,56 @@
+local spam = false
+_G.prefix = "-" 
+
+-- from jotunn
+
+
+    local plr = game.Players.LocalPlayer
+
+
+function l(msg)
+game.StarterGui:SetCore("SendNotification",  {
+ Title = "V3C Spam";
+ Text = msg;
+ Duration = 6;
+ Callback = NotificationBindable;
+})
+end
+
+function ccht(msssssgggg)
+        game.Players:Chat(msssssgggg)
+end
+
+l("spam loaded cmds printed also")
+
+
+print("prefix " .. _G.prefix)
+
+print("[Spam]")
+
+print("[UnSpam]")
+
+    plr.Chatted:connect(
+        function(msg)
+            msgh = msg:split(" ")
+            if msgh[1] == _G.prefix .. "spam" then  
+                command = msg:split("spam ")
+                spam = true
+                while spam do
+                    ccht(command[2])
+                    ccht(command[2])
+                    ccht(command[2])
+                    task.wait()
+                end
+            end
+        end
+    )
+
+    plr.Chatted:connect(
+        function(msg)
+            if msg == _G.prefix .. "unspam" then
+                spam = false
+            end
+        end
+    )
+    
+ 
