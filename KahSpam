@@ -1,4 +1,4 @@
--- from jotunn
+-- From Jotunn
 
 local spam = false
 getgenv().prefix = "-" 
@@ -14,8 +14,8 @@ function l(msg)
     })
 end
 
-function ccht(msssssgggg)
-        game.Players:Chat(msssssgggg)
+function chat(msg)
+        game.Players:Chat(msg)
 end
 
 l("KahSpam Loaded! Cmds have been printed into the dev console.")
@@ -27,14 +27,15 @@ print("unspam")
 
 plr.Chatted:connect(function(msg)
             local args = string.split(msg, " ")
+
             if args[1] == getgenv().prefix .. "spam" then  
                 command = args[2]
                 spam = true
                 while spam do
-                    ccht(command)
-                    ccht(command)
-                    ccht(command)
                     task.wait()
+                    chat(command)
+                    chat(command)
+                    chat(command)
                 end
             end
 end)
@@ -47,4 +48,3 @@ plr.Chatted:connect(function(msg)
             end
 end)
     
- 
