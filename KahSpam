@@ -1,56 +1,50 @@
-local spam = false
-_G.prefix = "-" 
-
 -- from jotunn
 
+local spam = false
+getgenv().prefix = "-" 
 
-    local plr = game.Players.LocalPlayer
-
+local plr = game.Players.LocalPlayer
 
 function l(msg)
-game.StarterGui:SetCore("SendNotification",  {
- Title = "V3C Spam";
- Text = msg;
- Duration = 6;
- Callback = NotificationBindable;
-})
+    game.StarterGui:SetCore("SendNotification",  {
+         Title = "KahSpam";
+         Text = msg;
+         Duration = 1;
+         Callback = NotificationBindable;
+    })
 end
 
 function ccht(msssssgggg)
         game.Players:Chat(msssssgggg)
 end
 
-l("spam loaded cmds printed also")
+l("KahSpam Loaded! Cmds have been printed into the dev console.")
 
+print("Prefix is set to " .. getgenv().prefix)
+print(" ")
+print("spam")
+print("unspam")
 
-print("prefix " .. _G.prefix)
-
-print("[Spam]")
-
-print("[UnSpam]")
-
-    plr.Chatted:connect(
-        function(msg)
-            msgh = msg:split(" ")
-            if msgh[1] == _G.prefix .. "spam" then  
-                command = msg:split("spam ")
+plr.Chatted:connect(function(msg)
+            local args = string.split(msg, " ")
+            if args[1] == getgenv().prefix .. "spam" then  
+                command = args[2]
                 spam = true
                 while spam do
-                    ccht(command[2])
-                    ccht(command[2])
-                    ccht(command[2])
+                    ccht(command)
+                    ccht(command)
+                    ccht(command)
                     task.wait()
                 end
             end
-        end
-    )
+end)
 
-    plr.Chatted:connect(
-        function(msg)
-            if msg == _G.prefix .. "unspam" then
+plr.Chatted:connect(function(msg)
+            local args = string.split(msg, " ")
+
+            if args[1] == getgenv().prefix .. "unspam" then
                 spam = false
             end
-        end
-    )
+end)
     
  
