@@ -5,7 +5,7 @@ getgenv().prefix = "-"
 
 local plr = game.Players.LocalPlayer
 
-function l(msg)
+function notify(msg)
     game.StarterGui:SetCore("SendNotification",  {
          Title = "KahSpam";
          Text = msg;
@@ -18,10 +18,12 @@ function chat(msg)
         game.Players:Chat(msg)
 end
 
-l("KahSpam Loaded! Cmds have been printed into the dev console.")
+notify("KahSpam Loaded! Cmds have been printed into the dev console.")
 
 print("Prefix is set to " .. getgenv().prefix)
-print(" ")
+print("")
+print("commands:")
+print("")
 print("spam")
 print("unspam")
 
